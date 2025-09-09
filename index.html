@@ -6,12 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Earth</title>
 
+    <!-- google font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+
     <!-- daisyui and tailwind cnd -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- stylesheet link  -->
+    <link rel="stylesheet" href="./style.css">
 </head>
 
-<body>
+<body class="bg-[#e7ffef] inter-font">
     <header>
         <nav class="bg-[#15803D]">
             <div class="navbar  md:w-11/12 md:mx-auto">
@@ -46,25 +56,34 @@
                 </div>
             </div>
         </nav>
-        <section class="md:flex items-center bg-[#CFF0DC]">
-            <div>
-                <img src="./assets/hero-leaf1.png" alt="">
-            </div>
-            <div class="text-center">
-                <h1 class="text-3xl font-bold">Plant a Tree, Grow a Future</h1>
-                <p class="opacity-70 text-xs my-4">Join our mission to plant 1 million trees and make the Earth greener for future
-                    generations.</p>
-                <a class="btn bg-[#FACC15] rounded-full text-[#15803D] border-none shadow-none hover:bg-[#e7bc0f]">Get
-                    Involved</a>
-            </div>
-            <div>
-                <img src="./assets/hero-leaf2.png" alt="">
-            </div>
+        <section
+            class="bg-[#CFF0DC] bg-[url('./assets/hero-leaf1.png'),url('./assets/hero-leaf2.png')] bg-[position:left_bottom,right_bottom] bg-no-repeat bg-[length:115px,115px] md:bg-[length:400px,400px] text-center md:py-20 py-8">
+            <h1 class="text-4xl font-bold">Plant a Tree, Grow a Future</h1>
+            <p class="opacity-70 text-xs my-4">Join our mission to plant 1 million trees and make the Earth greener
+                for future
+                generations.</p>
+            <a class="btn bg-[#FACC15] rounded-full text-[#15803D] border-none shadow-none hover:bg-[#e7bc0f]">Get
+                Involved</a>
         </section>
     </header>
 
-    <main>
+    <main class="mt-12">
+        <h2 class="text-xl font-semibold text-center">Choose Your Trees</h2>
+        <section class="w-11/12 mx-auto grid grid-cols-12 gap-4 my-6">
+            <aside class="col-span-2">
+                <h3 class="font-bold my-3 pl-2">Categories</h3>
+                <div id="Categorie-container">
 
+                </div>
+            </aside>
+            <div id="card-container" class="col-span-8 grid grid-cols-3 gap-4">
+
+            </div>
+            <aside class="col-span-2 bg-white rounded-lg p-2">
+                <h2 class="text-base font-semibold">Your Cart</h2>
+
+            </aside>
+        </section>
     </main>
 
     <footer>
