@@ -72,30 +72,94 @@
         </section>
     </header>
 
-    <main class="mt-12">
+    <main class="mt-10">
         <h2 class="text-xl font-semibold text-center">Choose Your Trees</h2>
-        <section class="w-11/12 mx-auto grid grid-cols-12 gap-4 my-6">
-            <aside class="col-span-2">
+        <h1 id="loadspeen" class="text-center mt-5 hidden"><span class="loading loading-dots loading-xl"></span></h1>
+        <section class="w-11/12 mx-auto grid md:grid-cols-12 gap-4 my-4">
+            <aside class="md:col-span-2">
                 <h3 class="font-bold my-3 pl-2">Categories</h3>
                 <div id="Categorie-container">
 
                 </div>
             </aside>
-            <div id="card-container" class="col-span-8 grid grid-cols-3 gap-4">
+            <div id="card-container" class="md:col-span-8 grid md:grid-cols-3 gap-4">
 
             </div>
-            <aside class="col-span-2 bg-white rounded-lg p-2">
+            <aside class="md:col-span-2 bg-white rounded-lg p-2">
                 <h2 class="text-base font-semibold">Your Cart</h2>
 
                 <div id="add-to-cart-containetr">
-                    
+
                 </div>
             </aside>
         </section>
+
+        <section class="mt-14 md:w-3/5 mx-auto pb-10">
+            <h2 class="text-lg font-semibold text-center">About the Campaign</h2>
+            <div class="md:flex items-center mx-auto gap-5 mt-5 p-2">
+                <div class="flex-1">
+                    <img class="" src="./assets/about.png" alt="">
+                </div>
+                <div class="flex-1 mt-2">
+                    <p class="text-xs">Green Earth is a global tree plantation initiative dedicated to fighting climate
+                        change. Since
+                        our start, we've planted over 500,000 trees worldwide. By joining our campaign, you help restore
+                        forests, create habitats for wildlife, and combat global warming.</p>
+                    <ul class="list-disc ml-5 mt-3">
+                        <li class="text-sm">Restoration of natural habitats</li>
+                        <li class="text-sm">Improvement of air quality</li>
+                        <li class="text-sm">Support for local communities</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="md:py-14 md:px-20 bg-[#CFF0DC] p-2">
+            <h2 class="text-xl font-bold text-center mb-7">Our Impact</h2>
+            <div class="grid md:grid-cols-3 gap-5">
+                <div
+                    class="card bg-base-100 card-xs shadow-sm text-center py-10 hover:bg-[#acffcc] hover:scale-103 transition duration-300">
+                    <h1 class="text-3xl font-bold text-[#15803D]">500K+</h1>
+                    <p>Trees Planted</p>
+                </div>
+                <div
+                    class="card bg-base-100 card-xs shadow-sm text-center py-10 hover:bg-[#acffcc] hover:scale-103 transition duration-300">
+                    <h1 class="text-3xl font-bold text-[#15803D]">120K+</h1>
+                    <p>Communities Involved</p>
+                </div>
+                <div
+                    class="card bg-base-100 card-xs shadow-sm text-center py-10 hover:bg-[#acffcc] hover:scale-103 transition duration-300">
+                    <h1 class="text-3xl font-bold text-[#15803D]">30K+</h1>
+                    <p>Countries Reached</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-[#166534] py-10">
+            <h1 class="text-2xl font-bold text-white text-center my-5">Plant a Tree Today</h1>
+            <div class="flex justify-center ">
+                <fieldset class="fieldset bg-base-200 bg-[#15803D] rounded-box md:w-4/12 p-6 shadow-sm">
+                    <input type="text" class="input w-full" placeholder="Your Name" />
+                    <input type="email" class="input w-full" placeholder="Your Email Address" />
+                    <fieldset class="fieldset ">
+                        <select class="select w-full">
+                            <option disabled selected>Number of Trees</option>
+                            <option>1 Tree - $5</option>
+                            <option>5 Tree - $25</option>
+                            <option>10 Tree - $50</option>
+                        </select>
+                    </fieldset>
+                    <button class="btn bg-[#FACC15] text-[#166534] mt-4 rounded-full shadow-none border-none">Donate
+                        Now</button>
+                </fieldset>
+            </div>
+        </section>
     </main>
 
-    <footer>
-
+    <footer class="footer sm:footer-horizontal footer-center bg-base-300 bg-[#14532D] text-base-content p-4 text-white">
+        <aside>
+            <p>© 2025 Green Earth. All Rights Reserved.</p>
+        </aside>
     </footer>
 
     <script src="./script/script.js"></script>

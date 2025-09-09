@@ -31,6 +31,7 @@ const removeActive = () => {
 }
 
 const showCard = (id) => {
+    manageSpeen(true)
     const url = `https://openapi.programming-hero.com/api/category/${id}`
     fetch(url)
         .then((res) => res.json())
@@ -51,7 +52,15 @@ fetch(url)
         displayCards(allData)
     })
 
-
+const manageSpeen = (status) => {
+    if (status == true) {
+        document.getElementById('loadspeen').classList.remove('hidden')
+        document.getElementById('card-container').classList.add('hidden')
+    } else {
+        document.getElementById('loadspeen').classList.add('hidden')
+        document.getElementById('card-container').classList.remove('hidden')
+    }
+}
 
 
 const displayCards = (datas) => {
@@ -59,8 +68,7 @@ const displayCards = (datas) => {
     cardContainer.innerHTML = ""
 
     datas.forEach(data => {
-        const card = document.createElement('div')
-        card.innerHTML = `
+        cardContainer.innerHTML += `
        <div id="${data.id}" class="bg-white p-2 rounded-xl h-fit">
                     <img class="h-[200px] w-full rounded-lg" src="${data.image}" alt="">
                     <h3 class="font-semibold my-1">${data.name}</h3>
@@ -72,9 +80,9 @@ const displayCards = (datas) => {
                     <button class="btn bg-[#15803D] rounded-full w-full text-white">Add to Cart</button>
                 </div>
         `
-        cardContainer.appendChild(card)
+        
     });
-    // manageSpeen(false)
+    manageSpeen(false)
 }
 
 document.getElementById('card-container').addEventListener('click', (e) => {
@@ -97,7 +105,9 @@ document.getElementById('card-container').addEventListener('click', (e) => {
 const showCart = (carts) => {
     const addCartContainer = document.getElementById('add-to-cart-containetr')
     addCartContainer.innerHTML = "";
+    let total = 0;
     carts.forEach(cart => {
+        total += cart.price;
         addCartContainer.innerHTML += `
         <div class="flex justify-between items-center bg-[#e7ffef] rounded-md my-2 p-2">
                         <div>
@@ -112,7 +122,7 @@ const showCart = (carts) => {
     addCartContainer.innerHTML += `
     <div class="py-1 border-t border-gray-300 flex justify-between items-center">
                     <div><h3 class="font-semibold text-sm">Total:</h3></div>
-                    <div><p><span class="text-sm font-normal"><i class="fa-solid fa-bangladeshi-taka-sign"></i></span><span>0</span><p></div>
+                    <div><p><span class="text-sm font-normal"><i class="fa-solid fa-bangladeshi-taka-sign"></i></span><span>${total}</span><p></div>
     </div>
     `
 }
