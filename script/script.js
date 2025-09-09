@@ -70,9 +70,9 @@ const displayCards = (datas) => {
     datas.forEach(data => {
         cardContainer.innerHTML += `
        <div id="${data.id}" class="bg-white p-2 rounded-xl h-fit">
-                    <img class="h-[200px] w-full rounded-lg" src="${data.image}" alt="">
-                    <h3 class="font-semibold my-1">${data.name}</h3>
-                    <p class="text-xs">${data.description}</p>
+                    <img class="h-[200px] w-full rounded-lg object-cover" src="${data.image}" alt="">
+                    <h3 onclick="showModal('${data.id}')" class="font-semibold my-1 cursor-pointer">${data.name}</h3>
+                    <p class="text-xs md:h-12 overflow-hidden">${data.description}</p>
                     <div class="flex justify-between items-center my-2">
                         <button class="bg-[#DCFCE7] text-[#15803D] text-sm font-medium rounded-full px-3 py-1 items-center">${data.category}</button>
                         <p><span><i class="fa-solid fa-bangladeshi-taka-sign"></i></span><span class="font-bold">${data.price}</span></p>
@@ -80,7 +80,7 @@ const displayCards = (datas) => {
                     <button class="btn bg-[#15803D] rounded-full w-full text-white">Add to Cart</button>
                 </div>
         `
-        
+
     });
     manageSpeen(false)
 }
@@ -112,7 +112,7 @@ const showCart = (carts) => {
         <div class="flex justify-between items-center bg-[#e7ffef] rounded-md my-2 p-2">
                         <div>
                             <h3 class="font-medium text-sm mb-1">${cart.title}</h3>
-                            <p class="text-xs">৳${cart.price}</p>
+                            <p class="text-xs">৳ ${cart.price}</p>
                         </div>
                         <div onclick="deleteCart('${cart.id}')" class="btn border-none bg-[#e7ffef]">❌</div>
                     </div>
@@ -128,7 +128,29 @@ const showCart = (carts) => {
 }
 
 const deleteCart = (cartId) => {
-    const filterCarts = carts.filter(cart => cart.id !== cartId)
-    carts = filterCarts
+    const filterCarts = carts.findIndex(cart => cart.id === cartId)
+    if (filterCarts !== -1) {
+        carts.splice(filterCarts, 1);
+    }
+
     showCart(carts)
+}
+
+const showModal = (id) => {
+    fetch(`https://openapi.programming-hero.com/api/plant/${id}`)
+        .then((res) => res.json())
+        .then(data => displayModal(data.plants))
+}
+const displayModal = (plants) => {
+    const modalContainer = document.getElementById('modal-container')
+    modalContainer.innerHTML = `
+                        <div class="space-y-1">
+                            <h1 class="text-base font-bold">${plants.name}</h1>
+                            <img class="h-[200px] md:h-[250px] w-full rounded-lg object-cover" src="${plants.image}" alt="">
+                            <h3 class="text-sm"><span class="font-bold">Category: </span>${plants.category}</h3>
+                            <p class="text-sm"><span class="font-bold">Price: </span>৳${plants.price}</p>
+                            <p class="text-sm"><span class="font-bold">Description: </span>${plants.description}</p>
+                        </div>
+    `
+    document.getElementById('modalCard').showModal()
 }
